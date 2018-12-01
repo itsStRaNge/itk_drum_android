@@ -35,6 +35,9 @@ import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +55,7 @@ public class DeviceControlActivity extends Activity {
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
     private TextView mConnectionState;
-    private TextView mDataField;
+    private TextView mPackageCounter;
     private String mDeviceName;
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
@@ -65,6 +68,7 @@ public class DeviceControlActivity extends Activity {
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
+    private TextView m_pitch, m_yaw, m_roll, m_acc_x, m_acc_y, m_acc_z, m_gyro_x, m_gyro_y, m_gyro_z;
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
@@ -104,8 +108,15 @@ public class DeviceControlActivity extends Activity {
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 // TODO parse data and process, maybe new thread
-                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+                // TODO not receiving the json object, receive some weird byte string
+                String data = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                try {
+                    JSONObject json_obj = new JSONObject(data);
 
+                    displayData(json_obj);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 // TODO asks for new data, try to enable notification to make it automatic
                 mBluetoothLeService.readCustomCharacteristic();
             }else{
@@ -116,7 +127,7 @@ public class DeviceControlActivity extends Activity {
 
     private void clearUI() {
         //mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
-        mDataField.setText(R.string.no_data);
+        mPackageCounter.setText(R.string.no_data);
     }
 
     @Override
@@ -129,13 +140,17 @@ public class DeviceControlActivity extends Activity {
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
 
         // Sets up UI references.
-        /*
-        ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
-        mGattServicesList = (ExpandableListView) findViewById(R.id.gatt_services_list);
-        mGattServicesList.setOnChildClickListener(servicesListClickListner);
-    mConnectionState = (TextView) findViewById(R.id.connection_state);
-    */
-        mDataField = (TextView) findViewById(R.id.data_value);
+        mPackageCounter = (TextView) findViewById(R.id.data_value);
+        m_pitch= (TextView) findViewById(R.id.pitch);
+        m_yaw= (TextView) findViewById(R.id.yaw);
+        m_roll= (TextView) findViewById(R.id.roll);
+        m_acc_x= (TextView) findViewById(R.id.acc_x);
+        m_acc_y= (TextView) findViewById(R.id.acc_y);
+        m_acc_z= (TextView) findViewById(R.id.acc_z);
+        m_gyro_x= (TextView) findViewById(R.id.gyro_x);
+        m_gyro_y= (TextView) findViewById(R.id.gyro_y);
+        m_gyro_z= (TextView) findViewById(R.id.gyro_z);
+
 
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -204,12 +219,33 @@ public class DeviceControlActivity extends Activity {
         });
     }
 
-    private void displayData(String data) {
-        if (data != null) {
-            String msg = mDataField.getText().toString();
+    private void displayData(JSONObject obj) {
+        try {
+            double roll = obj.getDouble("roll");
+            double pitch = obj.getDouble("pitch");
+            double yaw = obj.getDouble("yaw");
+            double acc_x = obj.getDouble("Acc_X");
+            double acc_y = obj.getDouble("Acc_Y");
+            double acc_z = obj.getDouble("Acc_Z");
+
+            double gyro_x = obj.getDouble("Gyro_X");
+            double gyro_y = obj.getDouble("Gyro_Y");
+            double gyro_z = obj.getDouble("Gyro_Z");
+
+            m_pitch.setText(String.valueOf(pitch));
+            m_yaw.setText(String.valueOf(yaw));
+            m_roll.setText(String.valueOf(roll));
+            m_acc_x.setText(String.valueOf(acc_x));
+            m_acc_y.setText(String.valueOf(acc_y));
+            m_acc_z.setText(String.valueOf(acc_z));
+            m_gyro_x.setText(String.valueOf(gyro_x));
+            m_gyro_y.setText(String.valueOf(gyro_y));
+            m_gyro_z.setText(String.valueOf(gyro_z));
+
+            String msg = mPackageCounter.getText().toString();
             Integer i = Integer.valueOf(msg);
-            mDataField.setText(String.valueOf(i + 1));
-        }
+            mPackageCounter.setText(String.valueOf(i + 1));
+        } catch(JSONException ignored){}
     }
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
