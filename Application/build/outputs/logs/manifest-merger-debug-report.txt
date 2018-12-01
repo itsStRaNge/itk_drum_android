@@ -1,0 +1,181 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-51:12
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-51:12
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-51:12
+MERGED from [com.android.support:support-v13:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v13-28.0.0.aar\33c3b3fc7049878e0da2974ef29428df\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\3caeacd3a8addce0e49dfa8d237b22c1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\9d07d066a67ac3d8faca8195d55d0ad6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\bbc6ee816560b42c7750b5d1753dbd36\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\d3a7f7165e8fb32894a7beb22470cef0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\1af653bd8a428c292ae3de95b8577daa\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1b2a74c5d53384393a97566ad12e0ac8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\e3838093b7a462194d193120ec2bfca8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46e8053fb4732361ad0d94e93e06761f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\5bc157aaa6725035e0579eb2a7c896b7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\3b69a018888ec4c74a8630d249ad23e3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\f770a0eaa8a5ba40a25ab7c16e26678e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\392d46b763a2b77a6ebf9ac9e9ec2e41\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\9746be95bf18341789d80d154ba32f6d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\2a0891b3ad30f9caf65b002e95c0a2e1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\70abb2925ec7ab14558d828ce7a409c0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\d8885ea9237c5378e1b57929145d98e2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\4ff1790f909e94b33bf7865ecbd84b9c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\7d0d378ab666b6b61e82084f6b0ba189\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\8c429cdeebc8df568b4884ae044eb107\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\418fe0c8430c9dd67ebf9da53e202264\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\7389899732e5baf21b76296fcc3b1245\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\799c9bc2d6c3b47453a8bd386a096fcc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\22d9e0e02604b784ff24e24ac127103f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3e00efab65e25a85e88e5625670fd525\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e2424f37f7381f45a152a69f3585da27\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\b1fa2c16ac0c40c39ef948bfba2606af\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\436af72e83c941e66f77f423b04d6819\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\941a5c96a5a042b38fdc1415da9c61a0\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-51:12
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:1-51:12
+	package
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:21:5-50
+	android:versionName
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:23:5-30
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:20:11-69
+	android:versionCode
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:22:5-28
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+uses-feature#android.hardware.bluetooth_le
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:5-89
+	android:required
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:64-87
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:31:19-63
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:33:5-67
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:33:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:34:5-73
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:34:22-71
+uses-permission-sdk-23#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:35:5-87
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:35:29-85
+application
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:37:5-49:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\7d0d378ab666b6b61e82084f6b0ba189\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\7d0d378ab666b6b61e82084f6b0ba189\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:37:18-50
+	android:icon
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:38:9-45
+	android:theme
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:39:9-56
+activity#com.example.android.bluetoothlegatt.DeviceScanActivity
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:40:9-46:20
+	android:label
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:41:13-45
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:40:19-53
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:42:13-45:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:43:17-68
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:43:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:44:17-76
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:44:27-74
+activity#com.example.android.bluetoothlegatt.DeviceControlActivity
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:47:9-58
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:47:19-56
+service#com.example.android.bluetoothlegatt.BluetoothLeService
+ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:48:9-77
+	android:enabled
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:48:53-75
+	android:name
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml:48:18-52
+uses-sdk
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v13:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v13-28.0.0.aar\33c3b3fc7049878e0da2974ef29428df\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v13-28.0.0.aar\33c3b3fc7049878e0da2974ef29428df\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\3caeacd3a8addce0e49dfa8d237b22c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\3caeacd3a8addce0e49dfa8d237b22c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\9d07d066a67ac3d8faca8195d55d0ad6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\9d07d066a67ac3d8faca8195d55d0ad6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\bbc6ee816560b42c7750b5d1753dbd36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\bbc6ee816560b42c7750b5d1753dbd36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\d3a7f7165e8fb32894a7beb22470cef0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\d3a7f7165e8fb32894a7beb22470cef0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\1af653bd8a428c292ae3de95b8577daa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\1af653bd8a428c292ae3de95b8577daa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1b2a74c5d53384393a97566ad12e0ac8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1b2a74c5d53384393a97566ad12e0ac8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\e3838093b7a462194d193120ec2bfca8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\e3838093b7a462194d193120ec2bfca8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46e8053fb4732361ad0d94e93e06761f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46e8053fb4732361ad0d94e93e06761f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\5bc157aaa6725035e0579eb2a7c896b7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\5bc157aaa6725035e0579eb2a7c896b7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\3b69a018888ec4c74a8630d249ad23e3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\3b69a018888ec4c74a8630d249ad23e3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\f770a0eaa8a5ba40a25ab7c16e26678e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\f770a0eaa8a5ba40a25ab7c16e26678e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\392d46b763a2b77a6ebf9ac9e9ec2e41\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\392d46b763a2b77a6ebf9ac9e9ec2e41\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\9746be95bf18341789d80d154ba32f6d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\9746be95bf18341789d80d154ba32f6d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\2a0891b3ad30f9caf65b002e95c0a2e1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\2a0891b3ad30f9caf65b002e95c0a2e1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\70abb2925ec7ab14558d828ce7a409c0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\70abb2925ec7ab14558d828ce7a409c0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\d8885ea9237c5378e1b57929145d98e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\d8885ea9237c5378e1b57929145d98e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\4ff1790f909e94b33bf7865ecbd84b9c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\4ff1790f909e94b33bf7865ecbd84b9c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\c1dade4745cbcec17d8a907063b066db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\7d0d378ab666b6b61e82084f6b0ba189\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\7d0d378ab666b6b61e82084f6b0ba189\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\8c429cdeebc8df568b4884ae044eb107\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\8c429cdeebc8df568b4884ae044eb107\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\418fe0c8430c9dd67ebf9da53e202264\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\418fe0c8430c9dd67ebf9da53e202264\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\7389899732e5baf21b76296fcc3b1245\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\7389899732e5baf21b76296fcc3b1245\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\799c9bc2d6c3b47453a8bd386a096fcc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\799c9bc2d6c3b47453a8bd386a096fcc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\22d9e0e02604b784ff24e24ac127103f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\22d9e0e02604b784ff24e24ac127103f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3e00efab65e25a85e88e5625670fd525\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3e00efab65e25a85e88e5625670fd525\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e2424f37f7381f45a152a69f3585da27\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e2424f37f7381f45a152a69f3585da27\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\b1fa2c16ac0c40c39ef948bfba2606af\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\b1fa2c16ac0c40c39ef948bfba2606af\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\436af72e83c941e66f77f423b04d6819\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\436af72e83c941e66f77f423b04d6819\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\941a5c96a5a042b38fdc1415da9c61a0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Lukas Bernhard\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\941a5c96a5a042b38fdc1415da9c61a0\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lukas Bernhard\Downloads\BleTerm-master\BluetoothLeGatt\Application\src\main\AndroidManifest.xml
