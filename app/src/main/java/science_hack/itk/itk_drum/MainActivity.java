@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.media.MediaPlayer;
@@ -82,17 +83,27 @@ public class MainActivity extends ListActivity /* implements SensorEventListener
             return;
         }
 
-        ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Manifest.permission.BLUETOOTH},
-                1);
-        ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Manifest.permission.BLUETOOTH_ADMIN},
-                1);
-        ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                1);
+        String[] PERMISSIONS = {
+                Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+        };
+
+        if(!hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, REQUEST_ENABLE_BT);
+        }
     }
 
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -280,131 +291,5 @@ public class MainActivity extends ListActivity /* implements SensorEventListener
         TextView deviceName;
         TextView deviceAddress;
     }
-
-    /*private MediaPlayer mp;
-    private ArrayList<Float> database;
-    private ArrayList<Float> data;
-    private Algorithms tool;
-
-    private SensorManager senSensorManager;
-    private Sensor senAccelerometer;
-
-    private long t = 0;
-    private long last_hit=0;
-
-    private static int DATA_SIZE = 10;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button one = (Button) this.findViewById(R.id.button_main);
-        mp = MediaPlayer.create(this, R.raw.kick);
-        data = new ArrayList<Float>(DATA_SIZE);
-        database = new ArrayList<Float>();
-        tool= new Algorithms(this);
-        read();
-        //timeline();
-        senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    public void read(){
-        float a = 0,b = 0,x = 0,y = 0,z = 0;
-         try {
-             InputStream fin = getResources().openRawResource(R.raw.accelerometer);
-             DataInputStream din = new DataInputStream(fin);
-
-             String thisLine;
-             java.io.BufferedInputStream s = new java.io.BufferedInputStream(fin);
-             java.io.BufferedReader myInput = new java.io.BufferedReader(new java.io.InputStreamReader(s));
-             int i = 0;
-             while ((thisLine = myInput.readLine()) != null) {
-                 // scan it line by line
-                 java.util.StringTokenizer st = new java.util.StringTokenizer(thisLine, " ");
-                 while (st.hasMoreElements()) {
-                     a = Float.valueOf(st.nextToken());
-                     b = Float.valueOf(st.nextToken());
-                     x = Float.valueOf(st.nextToken());
-                     y = Float.valueOf(st.nextToken());
-                     z = Float.valueOf(st.nextToken());
-                 }
-                 double n = sqrt(x * x + y * y + z * z);
-                 float norm = (float) n;
-                 database.add(norm);
-                 Log.d("", "x: " + Float.valueOf(x).toString() + " y: " + Float.valueOf(y).toString() + " z: " + Float.valueOf(z).toString() + " / " +Float.valueOf(norm).toString());
-                 //initialize data array
-                 if (i < 50) {
-                     data.add(norm);
-                     ++i;
-                 }
-
-                 Log.d("Main", String.valueOf(database.size()));
-             }
-         }
-         catch (Exception e){
-            Log.d("Main",e.getMessage());
-         }
-    }
-
-    public void buttonClick(View view) {
-        Log.d("MainActivitz","Button Click");
-        //sp.playDrum();
-        int i = 0;
-        while (i < 50) {
-            data.set(i,database.get(i));
-            ++i;
-        }
-        //timeline();
-    }
-
-    //simulating a real time data processing from a file
-    public void timeline(){
-        int i = DATA_SIZE;
-        int last_hit = 0;
-        while(i<database.size()){
-            int current_index = i%DATA_SIZE;
-            if(i-last_hit>Algorithms.FREEZING_CYCLES){
-                if(tool.DrumHit(data,database.get(i))){
-                    last_hit = i;
-                }
-            }
-            data.set(current_index, database.get(i));
-            sleep(100);
-            ++i;
-        }
-    }
-
-
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor mySensor = sensorEvent.sensor;
-        if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            //calculates the norm
-            float x = sensorEvent.values[0];
-            float y = sensorEvent.values[1];
-            float z = sensorEvent.values[2];
-            double n = sqrt(x * x + y * y + z * z);
-            float norm = (float) n;
-            Log.d("SensorChange", "norm: " + String.valueOf(norm));
-            //change data flow (only saving the past DATA_SIZE packages)
-            data.set((int)t%DATA_SIZE, norm);
-
-            if(t - last_hit > Algorithms.FREEZING_CYCLES){
-                if(tool.DrumHit2(norm)){
-                    last_hit = t;
-                }
-            }
-            //increment time counter
-            ++t;
-        }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }*/
-
 
 }
