@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private boolean lock = false;
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
+    private long t = 0;
+    private long last_hit=0;
 
-    private static int DATA_SIZE = 30;
+    private static int DATA_SIZE = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Button one = (Button) this.findViewById(R.id.button_main);
         sp = new SoundPlayer(this);
         mp = MediaPlayer.create(this, R.raw.kick);
-        data = new ArrayList<Float>();
+        data = new ArrayList<Float>(DATA_SIZE);
         database = new ArrayList<Float>();
         tool= new Algorithms(this);
         read();
@@ -149,7 +151,18 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             float x = sensorEvent.values[0];
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
-            Log.d("TAG", String.valueOf(x));
+            double n = sqrt(x * x + y * y + z * z);
+            float norm = (float) n;
+            Log.d("SensorChange", "norm: " + String.valueOf(norm));
+            //change data flow
+            data.set((int)t%DATA_SIZE, norm);
+            if(t - last_hit > Algorithms.FREEZE_CYCLES){
+                if(tool.DrumHit2(norm)){
+                    last_hit = t;
+                }
+            }
+            //increment time counter
+            ++t;
         }
     }
 

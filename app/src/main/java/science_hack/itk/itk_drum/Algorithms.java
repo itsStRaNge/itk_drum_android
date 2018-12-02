@@ -11,6 +11,7 @@ public class Algorithms {
     private Context context;
     public static float DRUM_HIT_DISTANCE = 4;
     public static long FREEZE_CYCLES = 10;
+    public static float WAVE_NORM = 16;
     public boolean LOCK = false;
 
     public Algorithms(Context c){
@@ -19,12 +20,21 @@ public class Algorithms {
     }
 
     public boolean DrumHit(ArrayList<Float> l, float current){
-        //calculate maximum
-        float m = 0;
+        //calculate minimum
+        float m = 100;
         for(int i=0;i<l.size();++i) {
-            if(l.get(i)>m) m=l.get(i);
+            if(l.get(i)<m) m=l.get(i);
         }
-        if(abs(m-current) >= DRUM_HIT_DISTANCE){
+        if(current - m >= DRUM_HIT_DISTANCE){
+            if(mp.isPlaying()) mp.seekTo(0);
+            mp.start();
+            return true;
+        }
+        return false;
+    }
+    //only considering the current norm, when it is large enough, it means there was a big change in the velocity, so from moving up to down
+    public boolean DrumHit2(float current){
+        if(current >= WAVE_NORM){
             if(mp.isPlaying()) mp.seekTo(0);
             mp.start();
             return true;
