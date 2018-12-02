@@ -211,4 +211,9 @@
             android:id="@+id/yaw" />
     </LinearLayout>
 
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="Play Drum"
+        android:onClick="button_sound_click"/>
 </LinearLayout>

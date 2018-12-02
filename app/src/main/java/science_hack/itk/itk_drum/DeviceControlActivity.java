@@ -24,11 +24,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -99,6 +102,8 @@ public class DeviceControlActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+        setup_sound_system();
     }
 
 
@@ -315,5 +320,48 @@ public class DeviceControlActivity extends Activity {
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
+    }
+
+    /* SOUND ENGINGE */
+
+    private SoundPool soundPool;
+    private int kick_id;
+    private int snare_id;
+    private int hat_open_id;
+    private int tom_low_id;
+    boolean sound_loaded = false;
+
+    private void setup_sound_system(){
+        soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId,
+                                       int status) {
+                sound_loaded = true;
+            }
+        });
+        kick_id = soundPool.load(this, R.raw.kick, 1);
+        snare_id = soundPool.load(this, R.raw.snare, 1);
+        hat_open_id = soundPool.load(this, R.raw.hat_open, 1);
+        tom_low_id = soundPool.load(this, R.raw.tom_low, 1);
+    }
+
+    private void play_sound(int id, int vol){
+        /*AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        float actualVolume = (float) audioManager
+                .getStreamVolume(AudioManager.STREAM_MUSIC);
+        float maxVolume = (float) audioManager
+                .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        float volume = actualVolume / maxVolume;*/
+        // Is the sound loaded already?
+        float volume = (float) vol / 100;
+        if (sound_loaded) {
+            soundPool.play(id, volume, volume, 1, 0, 1f);
+            Log.e("Test", "Vol: " + String.valueOf(volume));
+        }
+    }
+
+    public void button_sound_click(View v){
+        play_sound(2, 100);
     }
 }
