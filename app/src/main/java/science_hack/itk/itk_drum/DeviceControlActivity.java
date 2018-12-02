@@ -55,7 +55,6 @@ public class DeviceControlActivity extends Activity {
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
-    private TextView mConnectionState;
     private String mDeviceName;
     private String mDeviceAddress;
     private BluetoothLeService mBluetoothLeService;
@@ -66,10 +65,6 @@ public class DeviceControlActivity extends Activity {
 
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
-    private TextView mPackageCounter, mPackageLost, mPackageID;
-    int m_last_pkg_id = -1;
-
-    private TextView m_pitch, m_yaw, m_roll, m_acc_x, m_acc_y, m_acc_z, m_gyro_x, m_gyro_y, m_gyro_z;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,23 +75,6 @@ public class DeviceControlActivity extends Activity {
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
 
-        // Sets up UI references.
-        mConnectionState = (TextView) findViewById(R.id.connection_state);
-
-
-        // Sets up UI references.
-        mPackageCounter = (TextView) findViewById(R.id.data_value);
-        mPackageLost = (TextView) findViewById(R.id.pkg_lost);
-        mPackageID= (TextView) findViewById(R.id.pkg_id);
-        m_pitch= (TextView) findViewById(R.id.pitch);
-        m_yaw= (TextView) findViewById(R.id.yaw);
-        m_roll= (TextView) findViewById(R.id.roll);
-        m_acc_x= (TextView) findViewById(R.id.acc_x);
-        m_acc_y= (TextView) findViewById(R.id.acc_y);
-        m_acc_z= (TextView) findViewById(R.id.acc_z);
-        m_gyro_x= (TextView) findViewById(R.id.gyro_x);
-        m_gyro_y= (TextView) findViewById(R.id.gyro_y);
-        m_gyro_z= (TextView) findViewById(R.id.gyro_z);
 
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -151,7 +129,10 @@ public class DeviceControlActivity extends Activity {
                 connectToCharacteristic(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 //Log.d(TAG, intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
-                displayData(intent.getIntegerArrayListExtra(BluetoothLeService.EXTRA_DATA));
+                int drum_id = intent.getIntExtra(BluetoothLeService.DRUM_INTENT_ID, 0);
+                int volume = intent.getIntExtra(BluetoothLeService.VOLUME_INTENT_ID, 0);
+                play_sound(drum_id, volume);
+                displayData(drum_id, volume);
             }
         }
     };
@@ -216,53 +197,13 @@ public class DeviceControlActivity extends Activity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mConnectionState.setText(resourceId);
+               // mConnectionState.setText(resourceId);
             }
         });
     }
 
-    private void displayData(ArrayList<Integer> data) {
-        if (data != null) {
-            if(data.size() > 9) {
-                Integer pkg_id = data.get(0); //Integer.parseInt(list[9], 16);
+    private void displayData(int drum_id, int volume) {
 
-                Integer acc_x = data.get(1);
-                Integer acc_y = data.get(2);
-                Integer acc_z = data.get(3);
-
-                Integer gyro_x = data.get(4);
-                Integer gyro_y = data.get(5);
-                Integer gyro_z = data.get(6);
-
-                Integer roll = data.get(7);
-                Integer pitch = data.get(8);
-                Integer yaw = data.get(9);
-
-
-                m_pitch.setText(String.valueOf(pitch));
-                m_yaw.setText(String.valueOf(yaw));
-                m_roll.setText(String.valueOf(roll));
-                m_acc_x.setText(String.valueOf(acc_x));
-                m_acc_y.setText(String.valueOf(acc_y));
-                m_acc_z.setText(String.valueOf(acc_z));
-                m_gyro_x.setText(String.valueOf(gyro_x));
-                m_gyro_y.setText(String.valueOf(gyro_y));
-                m_gyro_z.setText(String.valueOf(gyro_z));
-
-                String pkgs = mPackageCounter.getText().toString();
-                Integer i = Integer.valueOf(pkgs);
-                mPackageCounter.setText(String.valueOf(i + 1));
-
-                mPackageID.setText(String.valueOf(pkg_id));
-
-                if(m_last_pkg_id != -1) {
-                    pkgs = mPackageLost.getText().toString();
-                    i = Integer.valueOf(pkgs);
-                    mPackageLost.setText(String.valueOf(i + (pkg_id - m_last_pkg_id - 1)));
-                }
-                m_last_pkg_id = pkg_id;
-            }
-        }
     }
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
@@ -357,7 +298,7 @@ public class DeviceControlActivity extends Activity {
         float volume = (float) vol / 100;
         if (sound_loaded) {
             soundPool.play(id, volume, volume, 1, 0, 1f);
-            Log.e("Test", "Vol: " + String.valueOf(volume));
+            Log.i(TAG, "Drum: " + String.valueOf(id) + " - Volume: " + String.valueOf(volume));
         }
     }
 

@@ -53,6 +53,9 @@ public class BluetoothLeService extends Service {
     private static final int STATE_CONNECTING = 1;
     private static final int STATE_CONNECTED = 2;
 
+    public final static String DRUM_INTENT_ID = "DRUM_ID";
+    public final static String VOLUME_INTENT_ID = "VOLUME_ID";
+
     public final static String ACTION_GATT_CONNECTED =
             "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
     public final static String ACTION_GATT_DISCONNECTED =
@@ -144,19 +147,10 @@ public class BluetoothLeService extends Service {
             // For all other profiles, writes the data formatted in HEX.
             final byte[] data = characteristic.getValue();
             if (data != null && data.length > 0) {
-                ArrayList<Integer> int_pkg = new ArrayList<>();
-                for(int i=0; i<data.length; i+=2){
-                    int n = ((data[i+1] & 0xFF) << 8) | (data[i] & 0xFF);
-
-                    // if i = 0 then we get id and id is unsigned int
-                    if(i != 0){
-                        if(n > 32_767){
-                            n = n - 65_535;
-                        }
-                    }
-                    int_pkg.add(n);
-                }
-                intent.putIntegerArrayListExtra(EXTRA_DATA, int_pkg);
+                int drum_id = data[0];
+                int volume = data[1];
+                intent.putExtra(DRUM_INTENT_ID, drum_id);
+                intent.putExtra(VOLUME_INTENT_ID, volume);
             }
         }
         sendBroadcast(intent);
