@@ -15,6 +15,9 @@ package science_hack.itk.itk_drum;
  * limitations under the License.
  */
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
@@ -24,14 +27,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -203,7 +213,27 @@ public class DeviceControlActivity extends Activity {
     }
 
     private void displayData(int drum_id, int volume) {
+        Button drum1 = findViewById(R.id.drum1);
+        Button drum2 = findViewById(R.id.drum2);
+        Button drum3 = findViewById(R.id.drum3);
+        Button drum4 = findViewById(R.id.drum4);
+        Button button= drum1;
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_drum);
+        /*AnimatorSet set = (AnimatorSet)AnimatorInflater.loadAnimator(this, R.animator.anim_button);
+        set.setTarget(drum2);
+        set.start();*/
+        switch (drum_id){
+            case 1:
+                button =drum1; break;
+            case 2:
+                button =drum2; break;
+            case 3:
+                button =drum3; break;
+            case 4:
+                button =drum4; break;
+        }
 
+        button.startAnimation(animAlpha);
     }
 
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
@@ -304,5 +334,13 @@ public class DeviceControlActivity extends Activity {
 
     public void button_sound_click(View v){
         play_sound(2, 100);
+    }
+
+    public void drum1Click(View view) {
+
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_drum);
+        view.startAnimation(animAlpha);
+
+        displayData(1,1);
     }
 }
