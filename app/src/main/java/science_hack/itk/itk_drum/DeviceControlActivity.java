@@ -66,6 +66,7 @@ public class DeviceControlActivity extends Activity {
     private TextView mPackageCounter, mPackageLost, mPackageID;
     int m_last_pkg_id = -1;
 
+    private Algorithms m_algorithm;
     private TextView m_pitch, m_yaw, m_roll, m_acc_x, m_acc_y, m_acc_z, m_gyro_x, m_gyro_y, m_gyro_z;
 
     @Override
@@ -99,6 +100,8 @@ public class DeviceControlActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+        m_algorithm = new Algorithms(this);
     }
 
 
@@ -146,7 +149,9 @@ public class DeviceControlActivity extends Activity {
                 connectToCharacteristic(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 //Log.d(TAG, intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
-                displayData(intent.getIntegerArrayListExtra(BluetoothLeService.EXTRA_DATA));
+                DataPoint point = new DataPoint(intent.getIntegerArrayListExtra(BluetoothLeService.EXTRA_DATA));
+                m_algorithm.add_data(point);
+                displayData(point);
             }
         }
     };
@@ -216,47 +221,31 @@ public class DeviceControlActivity extends Activity {
         });
     }
 
-    private void displayData(ArrayList<Integer> data) {
-        if (data != null) {
-            if(data.size() > 9) {
-                Integer pkg_id = data.get(0); //Integer.parseInt(list[9], 16);
+    private void displayData(DataPoint point) {
+        if (point != null) {
 
-                Integer acc_x = data.get(1);
-                Integer acc_y = data.get(2);
-                Integer acc_z = data.get(3);
+            m_pitch.setText(String.valueOf(point.pitch()));
+            m_yaw.setText(String.valueOf(point.yaw()));
+            m_roll.setText(String.valueOf(point.roll()));
+            m_acc_x.setText(String.valueOf(point.acc_x()));
+            m_acc_y.setText(String.valueOf(point.acc_y()));
+            m_acc_z.setText(String.valueOf(point.acc_z()));
+            m_gyro_x.setText(String.valueOf(point.gyro_x()));
+            m_gyro_y.setText(String.valueOf(point.gyro_y()));
+            m_gyro_z.setText(String.valueOf(point.gyro_z()));
 
-                Integer gyro_x = data.get(4);
-                Integer gyro_y = data.get(5);
-                Integer gyro_z = data.get(6);
+            String pkgs = mPackageCounter.getText().toString();
+            Integer i = Integer.valueOf(pkgs);
+            mPackageCounter.setText(String.valueOf(i + 1));
 
-                Integer roll = data.get(7);
-                Integer pitch = data.get(8);
-                Integer yaw = data.get(9);
+            mPackageID.setText(String.valueOf(point.pkg_id()));
 
-
-                m_pitch.setText(String.valueOf(pitch));
-                m_yaw.setText(String.valueOf(yaw));
-                m_roll.setText(String.valueOf(roll));
-                m_acc_x.setText(String.valueOf(acc_x));
-                m_acc_y.setText(String.valueOf(acc_y));
-                m_acc_z.setText(String.valueOf(acc_z));
-                m_gyro_x.setText(String.valueOf(gyro_x));
-                m_gyro_y.setText(String.valueOf(gyro_y));
-                m_gyro_z.setText(String.valueOf(gyro_z));
-
-                String pkgs = mPackageCounter.getText().toString();
-                Integer i = Integer.valueOf(pkgs);
-                mPackageCounter.setText(String.valueOf(i + 1));
-
-                mPackageID.setText(String.valueOf(pkg_id));
-
-                if(m_last_pkg_id != -1) {
-                    pkgs = mPackageLost.getText().toString();
-                    i = Integer.valueOf(pkgs);
-                    mPackageLost.setText(String.valueOf(i + (pkg_id - m_last_pkg_id - 1)));
-                }
-                m_last_pkg_id = pkg_id;
+            if(m_last_pkg_id != -1) {
+                pkgs = mPackageLost.getText().toString();
+                i = Integer.valueOf(pkgs);
+                mPackageLost.setText(String.valueOf(i + (point.pkg_id() - m_last_pkg_id - 1)));
             }
+            m_last_pkg_id = point.pkg_id();
         }
     }
 

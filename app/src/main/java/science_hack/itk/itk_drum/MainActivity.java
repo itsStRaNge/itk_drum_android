@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import static android.os.SystemClock.sleep;
 import static java.lang.Math.sqrt;
 
-public class MainActivity extends ListActivity /* implements SensorEventListener */{
+public class MainActivity extends ListActivity {
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
@@ -300,64 +300,9 @@ public class MainActivity extends ListActivity /* implements SensorEventListener
         setContentView(R.layout.activity_main);
         Button one = (Button) this.findViewById(R.id.button_main);
         mp = MediaPlayer.create(this, R.raw.kick);
-        data = new ArrayList<Float>(DATA_SIZE);
-        database = new ArrayList<Float>();
         tool= new Algorithms(this);
-        read();
-        //timeline();
-        senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    public void read(){
-        float a = 0,b = 0,x = 0,y = 0,z = 0;
-         try {
-             InputStream fin = getResources().openRawResource(R.raw.accelerometer);
-             DataInputStream din = new DataInputStream(fin);
-
-             String thisLine;
-             java.io.BufferedInputStream s = new java.io.BufferedInputStream(fin);
-             java.io.BufferedReader myInput = new java.io.BufferedReader(new java.io.InputStreamReader(s));
-             int i = 0;
-             while ((thisLine = myInput.readLine()) != null) {
-                 // scan it line by line
-                 java.util.StringTokenizer st = new java.util.StringTokenizer(thisLine, " ");
-                 while (st.hasMoreElements()) {
-                     a = Float.valueOf(st.nextToken());
-                     b = Float.valueOf(st.nextToken());
-                     x = Float.valueOf(st.nextToken());
-                     y = Float.valueOf(st.nextToken());
-                     z = Float.valueOf(st.nextToken());
-                 }
-                 double n = sqrt(x * x + y * y + z * z);
-                 float norm = (float) n;
-                 database.add(norm);
-                 Log.d("", "x: " + Float.valueOf(x).toString() + " y: " + Float.valueOf(y).toString() + " z: " + Float.valueOf(z).toString() + " / " +Float.valueOf(norm).toString());
-                 //initialize data array
-                 if (i < 50) {
-                     data.add(norm);
-                     ++i;
-                 }
-
-                 Log.d("Main", String.valueOf(database.size()));
-             }
-         }
-         catch (Exception e){
-            Log.d("Main",e.getMessage());
-         }
-    }
-
-    public void buttonClick(View view) {
-        Log.d("MainActivitz","Button Click");
-        //sp.playDrum();
-        int i = 0;
-        while (i < 50) {
-            data.set(i,database.get(i));
-            ++i;
-        }
-        //timeline();
-    }
 
     //simulating a real time data processing from a file
     public void timeline(){
@@ -399,11 +344,6 @@ public class MainActivity extends ListActivity /* implements SensorEventListener
             //increment time counter
             ++t;
         }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }*/
 
 

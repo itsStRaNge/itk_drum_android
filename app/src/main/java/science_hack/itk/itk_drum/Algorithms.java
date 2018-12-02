@@ -17,11 +17,25 @@ public class Algorithms {
     public static long FREEZING_CYCLES = 1;
     public static float HIT_NORM = 20;
 
+    private int buffer_len = 50;
+    private ArrayList<DataPoint> m_data_points = new ArrayList<>();
+
     public Algorithms(Context c){
         context = c;
         mp = MediaPlayer.create(context, R.raw.kick);
     }
 
+    public void add_data(DataPoint point){
+        m_data_points.add(point);
+        if(m_data_points.size() > buffer_len){
+            m_data_points.remove(0);
+        }
+        calculate();
+    }
+
+    private void calculate(){
+        // TODO do the calculation
+    }
     //Old algorithm: receives a list of the accelerations during some period of time in the past and the current acceleration
     //calculates the minimum of the list, a low value represents a movement downwards
     //if the current acceleration is larger enough than the minimum, it means a stop after moving down, therefore a hit
