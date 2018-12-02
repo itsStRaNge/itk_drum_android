@@ -146,6 +146,7 @@ public class BluetoothLeService extends Service {
         } else {
             // For all other profiles, writes the data formatted in HEX.
             final byte[] data = characteristic.getValue();
+            Log.i(TAG, String.valueOf(data));
             if (data != null && data.length > 0) {
                 int drum_id = data[0];
                 int volume = data[1];
