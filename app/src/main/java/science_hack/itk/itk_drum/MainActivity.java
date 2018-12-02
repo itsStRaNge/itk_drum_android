@@ -23,14 +23,14 @@ import static android.os.SystemClock.sleep;
 import static java.lang.Math.sqrt;
 
 public class MainActivity extends AppCompatActivity  implements SensorEventListener {
-    SoundPlayer sp;
-    MediaPlayer mp;
-    ArrayList<Float> database;
-    ArrayList<Float> data;
-    Algorithms tool;
-    private boolean lock = false;
+    private MediaPlayer mp;
+    private ArrayList<Float> database;
+    private ArrayList<Float> data;
+    private Algorithms tool;
+
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
+
     private long t = 0;
     private long last_hit=0;
 
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button one = (Button) this.findViewById(R.id.button_main);
-        sp = new SoundPlayer(this);
         mp = MediaPlayer.create(this, R.raw.kick);
         data = new ArrayList<Float>(DATA_SIZE);
         database = new ArrayList<Float>();
@@ -85,26 +84,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
 
                  Log.d("Main", String.valueOf(database.size()));
              }
-
-             /*int i=0;
-             while(din.available()>0) {
-                 float a = din.readFloat();
-                 float b = din.readFloat();
-                 float x = din.readFloat();
-                 float y = din.readFloat();
-                 float z = din.readFloat();
-                 Float norm = new Float(sqrt(x*x+y*y+z*z));
-                 database.add(norm);
-                 Log.d("","x: " + new Float(x).toString() +" y: " + new Float(y).toString() + " z: " + new Float(z).toString() + " / " +norm.toString());
-                 //initialize data array
-                 if(i<50){
-                     data.add(norm);
-                     ++i;
-                 }
-             }
-             Log.d("Main",String.valueOf(database.size()));
-             din.close();
-         */
          }
          catch (Exception e){
             Log.d("Main",e.getMessage());
@@ -119,23 +98,20 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             data.set(i,database.get(i));
             ++i;
         }
-        timeline();
+        //timeline();
     }
 
+    //simulating a real time data processing from a file
     public void timeline(){
         int i = DATA_SIZE;
         int last_hit = 0;
         while(i<database.size()){
             int current_index = i%DATA_SIZE;
-            if(i-last_hit>Algorithms.FREEZE_CYCLES){
+            if(i-last_hit>Algorithms.FREEZING_CYCLES){
                 if(tool.DrumHit(data,database.get(i))){
                     last_hit = i;
                 }
             }
-            /*if(!tool.LOCK){
-                Runnable r = new RunAlg(tool,mp,data,database.get(i));
-                new Thread(r).start();
-            }*/
             data.set(current_index, database.get(i));
             sleep(100);
             ++i;
@@ -146,17 +122,18 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         Sensor mySensor = sensorEvent.sensor;
-
         if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            //calculates the norm
             float x = sensorEvent.values[0];
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
             double n = sqrt(x * x + y * y + z * z);
             float norm = (float) n;
             Log.d("SensorChange", "norm: " + String.valueOf(norm));
-            //change data flow
+            //change data flow (only saving the past DATA_SIZE packages)
             data.set((int)t%DATA_SIZE, norm);
-            if(t - last_hit > Algorithms.FREEZE_CYCLES){
+
+            if(t - last_hit > Algorithms.FREEZING_CYCLES){
                 if(tool.DrumHit2(norm)){
                     last_hit = t;
                 }

@@ -29,8 +29,6 @@ public class RunAlg implements Runnable {
         if(abs(m-current) >= alg.DRUM_HIT_DISTANCE){
             if(mp.isPlaying()) mp.seekTo(0);
             mp.start();
-            alg.LOCK = true;
-            alg.LOCK = false;
         }
     }
 }
